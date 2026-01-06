@@ -1,5 +1,6 @@
 import React from "react";
 import HeaderDropdown from "./components/HeaderDropdown";
+import { useLocation } from "react-router-dom";
 
 interface HeaderProps {
     onToggleSidebar: () => void;
@@ -11,6 +12,11 @@ const handleLogout = () => {
 }
 
 const Header: React.FC<HeaderProps> = ({ onToggleSidebar }) => {
+    const location = useLocation();
+    const path = location.pathname
+    const formatTitle = (path: string) => { if (path === "/dashboard") return "Dashboard"; if (path === "/settings") return "Settings"; if (path === "/profile") return "Profile";
+        return path.split("/").filter(Boolean).map( (word) => word.charAt(0).toUpperCase() + word.slice(1) ).join(" / ");
+     };
     return (
         <header className="sticky top-0 z-30 bg-gradient-to-r from-white/80 via-white/70 to-white/80 backdrop-blur-2xl border-b border-white/50 shadow-lg">
             {/* Animated Background Elements */}
@@ -35,7 +41,7 @@ const Header: React.FC<HeaderProps> = ({ onToggleSidebar }) => {
                     {/* Title - Hidden on mobile */}
                     <div className="hidden md:block">
                         <h1 className="text-xl font-bold bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
-                            Dashboard
+                            {formatTitle(path)}
                         </h1>
                         <p className="text-xs text-gray-600">Welcome back to your workspace</p>
                     </div>
