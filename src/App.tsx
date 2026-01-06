@@ -17,8 +17,8 @@ import SettingPage from "./features/setting/SettingPage"
 const App = () => {
   return (
     <Routes>
+      <Route index element={<AuthPage />} />
       <Route element={<MainLayout />}>
-        <Route index element={<AuthPage />} />
         <Route path="/user" element={<UserPage />} />
         <Route path="/dashboard" element={<DashboardPage />} />
         <Route path="/product" element={<ProductPage />} />

@@ -13,7 +13,6 @@ const AuthPage = () => {
   return (
     <div>
       {isLogin ? <LoginForm  /> : <ResetPassword />}
-      <button onClick={handleLogin}>Chang Status</button>
     </div>
   )
 }
