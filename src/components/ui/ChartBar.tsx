@@ -9,6 +9,8 @@ import {
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
 
+
+
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend);
 
 interface ChartBarProps {
@@ -80,6 +82,7 @@ const ChartBar: React.FC<ChartBarProps> = ({ title, labels, dataValues }) => {
     },
     scales: {
       x: { 
+        type: 'category',
         ticks: { 
           color: "#475569",
           font: {
@@ -95,6 +98,7 @@ const ChartBar: React.FC<ChartBarProps> = ({ title, labels, dataValues }) => {
         }
       },
       y: { 
+        type: 'linear',
         ticks: { 
           color: "#475569",
           font: {
@@ -135,7 +139,7 @@ const ChartBar: React.FC<ChartBarProps> = ({ title, labels, dataValues }) => {
         
         {/* Chart container */}
         <div className="relative">
-          <Bar data={data} options={options} />
+          <Bar data={data} />
         </div>
       </div>
     </div>

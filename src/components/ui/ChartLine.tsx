@@ -158,7 +158,7 @@ const ChartLine: React.FC<ChartLineProps> = ({ title, labels, dataValues }) => {
         
         {/* Chart container */}
         <div className="relative">
-          <Line data={data} options={options} />
+          <Line data={data}  />
         </div>
 
         {/* Mini stats at bottom */}

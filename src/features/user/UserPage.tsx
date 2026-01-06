@@ -3,13 +3,8 @@ import { USER_DATA } from "../../constants/UserData";
 import { Modal } from "../../components/ui";
 import UserForm from "./components/UserForm";
 
-interface User {
-  id: number;
-  name: string;
-  email: string;
-  role: "User" | "Admin";
-  status: "Active" | "Banned";
-}
+type User = { id: number; name: string; email: string; role: string; // chấp nhận mọi chuỗi 
+status: string; };
 
 const UserManagement: React.FC = () => {
   const [users, setUsers] = useState<User[]>(USER_DATA.users);
@@ -296,7 +291,7 @@ const UserManagement: React.FC = () => {
       <Modal isOpen={isModalOpen} onClose={closeModal} title={modalTitle}>
         <UserForm
           onSubmit={selectedUser ? handleUpdateUser : handleCreateUser}
-          defaultValues={selectedUser || undefined}
+         defaultValues={ selectedUser ? { ...selectedUser, role: selectedUser.role as "User" | "Admin" } : undefined }
         />
       </Modal>
     </div>

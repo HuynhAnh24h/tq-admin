@@ -1,6 +1,5 @@
 import React from "react";
 import { DASHBOARD_DATA } from "../../constants/DashboardData";
-import DashboardCard from "./components/DashboardCard";
 import { ChartTable,ChartBar,ChartLine, ChartCircle } from "../../components/ui";
 
 
@@ -322,7 +321,13 @@ const DashboardPage: React.FC = () => {
             <h2 className="text-2xl font-bold text-gray-800">New Products</h2>
           </div>
           <div className="bg-white/40 backdrop-blur-xl rounded-2xl shadow-xl border border-white/50 overflow-hidden">
-            <ChartTable title="New Products" products={DASHBOARD_DATA.products} />
+            <ChartTable
+              title="New Products"
+              products={DASHBOARD_DATA.products.map(p => ({
+                ...p,
+                price: p.price.toString()
+              }))}
+            />
           </div>
         </div>
       </div>
