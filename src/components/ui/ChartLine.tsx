@@ -51,74 +51,74 @@ const ChartLine: React.FC<ChartLineProps> = ({ title, labels, dataValues }) => {
     ],
   };
 
-  const options = {
-    responsive: true,
-    maintainAspectRatio: true,
-    interaction: {
-      mode: "index" as const,
-      intersect: false,
-    },
-    plugins: {
-      legend: { 
-        display: false 
-      },
-      tooltip: {
-        backgroundColor: "rgba(255, 255, 255, 0.95)",
-        titleColor: "#1e40af",
-        bodyColor: "#374151",
-        borderColor: "rgba(59, 130, 246, 0.2)",
-        borderWidth: 1,
-        padding: 12,
-        displayColors: false,
-        usePointStyle: true,
-        titleFont: {
-          size: 14,
-          weight: "bold" as const,
-        },
-        bodyFont: {
-          size: 13,
-        },
-        callbacks: {
-          label: function(context: any) {
-            return ` ${context.parsed.y.toLocaleString()}`;
-          }
-        }
-      },
-    },
-    scales: {
-      x: { 
-        ticks: { 
-          color: "#475569",
-          font: {
-            size: 12,
-            weight: "500" as const,
-          }
-        },
-        grid: {
-          display: false,
-        },
-        border: {
-          display: false,
-        }
-      },
-      y: { 
-        ticks: { 
-          color: "#475569",
-          font: {
-            size: 12,
-          },
-          padding: 8,
-        },
-        grid: {
-          color: "rgba(148, 163, 184, 0.1)",
-          drawBorder: false,
-        },
-        border: {
-          display: false,
-        }
-      },
-    },
-  };
+  // const options = {
+  //   responsive: true,
+  //   maintainAspectRatio: true,
+  //   interaction: {
+  //     mode: "index" as const,
+  //     intersect: false,
+  //   },
+  //   plugins: {
+  //     legend: { 
+  //       display: false 
+  //     },
+  //     tooltip: {
+  //       backgroundColor: "rgba(255, 255, 255, 0.95)",
+  //       titleColor: "#1e40af",
+  //       bodyColor: "#374151",
+  //       borderColor: "rgba(59, 130, 246, 0.2)",
+  //       borderWidth: 1,
+  //       padding: 12,
+  //       displayColors: false,
+  //       usePointStyle: true,
+  //       titleFont: {
+  //         size: 14,
+  //         weight: "bold" as const,
+  //       },
+  //       bodyFont: {
+  //         size: 13,
+  //       },
+  //       callbacks: {
+  //         label: function(context: any) {
+  //           return ` ${context.parsed.y.toLocaleString()}`;
+  //         }
+  //       }
+  //     },
+  //   },
+  //   scales: {
+  //     x: { 
+  //       ticks: { 
+  //         color: "#475569",
+  //         font: {
+  //           size: 12,
+  //           weight: "500" as const,
+  //         }
+  //       },
+  //       grid: {
+  //         display: false,
+  //       },
+  //       border: {
+  //         display: false,
+  //       }
+  //     },
+  //     y: { 
+  //       ticks: { 
+  //         color: "#475569",
+  //         font: {
+  //           size: 12,
+  //         },
+  //         padding: 8,
+  //       },
+  //       grid: {
+  //         color: "rgba(148, 163, 184, 0.1)",
+  //         drawBorder: false,
+  //       },
+  //       border: {
+  //         display: false,
+  //       }
+  //     },
+  //   },
+  // };
 
   // Calculate stats
   const max = Math.max(...dataValues);

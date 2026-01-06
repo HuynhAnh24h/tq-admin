@@ -60,7 +60,7 @@ const UserManagement: React.FC = () => {
 
   // Statistics
   const activeUsers = users.filter(u => u.status === "Active").length;
-  const bannedUsers = users.filter(u => u.status === "Banned").length;
+  // const bannedUsers = users.filter(u => u.status === "Banned").length;
   const adminUsers = users.filter(u => u.role === "Admin").length;
 
   return (
